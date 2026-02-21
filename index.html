@@ -6,15 +6,15 @@
     <title>Raafiqul Hasan - EEE Student</title>
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-    <!-- Simple Icons for tech icons -->
+    <!-- Simple Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v9/font/simple-icons.min.css">
-    <!-- Font Awesome for educational/professional icons -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="light-mode">
     <div class="theme-wrapper">
-        <!-- Header with Navigation and Theme Toggle -->
+        <!-- Header -->
         <header>
             <div class="header-container">
                 <div class="logo-area">
@@ -23,7 +23,7 @@
                 </div>
                 
                 <div class="header-controls">
-                    <!-- Theme Toggle Switch -->
+                    <!-- Theme Toggle -->
                     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
                         <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <circle cx="12" cy="12" r="5"></circle>
@@ -41,7 +41,7 @@
                         </svg>
                     </button>
                     
-                    <!-- Hamburger Menu Button (Mobile) -->
+                    <!-- Hamburger Menu -->
                     <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
                         <span></span>
                         <span></span>
@@ -50,20 +50,21 @@
                 </div>
             </div>
             
-            <!-- Navigation -->
+            <!-- Navigation with Projects -->
             <nav id="main-nav">
                 <ul>
-                    <li><a href="resume.html">Resume</a></li>
-                    <li><a href="research.html">Research</a></li>
-                    <li><a href="outreach.html">Outreach</a></li>
-                    <li><a href="personal.html">Personal</a></li>
+                    <li><a href="resume.html">→ Resume</a></li>
+                    <li><a href="research.html">→ Research</a></li>
+                    <li><a href="projects.html">→ Projects</a></li>
+                    <li><a href="outreach.html">→ Outreach</a></li>
+                    <li><a href="personal.html">→ Personal</a></li>
                 </ul>
             </nav>
         </header>
 
         <!-- Main Content -->
         <div class="main-content">
-            <!-- Sidebar with Photo and Bio -->
+            <!-- Sidebar -->
             <aside class="sidebar glass-card">
                 <div class="profile-image">
                     <img src="images/your-photo.jpg" alt="Raafiqul Hasan">
@@ -73,7 +74,7 @@
                 <p class="bio">I enjoy understanding systems from the ground up — whether it's semiconductor devices, differential equations, or Linux system customization. My goal is to grow into a strong engineer and future academic in EEE.</p>
             </aside>
 
-            <!-- Main Content Area -->
+            <!-- Content -->
             <section class="content">
                 <h2>Welcome to My Portfolio</h2>
                 
@@ -97,10 +98,9 @@
                     </div>
                 </div>
 
-                <!-- Quick Overview Cards - FIXED with matching icons -->
+                <!-- Quick Overview Cards -->
                 <h3>Quick Overview</h3>
                 <div class="cards-grid">
-                    <!-- University Card -->
                     <div class="info-card glass-card">
                         <div class="card-icon">
                             <i class="fas fa-university"></i>
@@ -109,7 +109,6 @@
                         <p>University of Asia Pacific, Dhaka</p>
                     </div>
                     
-                    <!-- Program Card (EEE) -->
                     <div class="info-card glass-card">
                         <div class="card-icon">
                             <i class="fas fa-bolt"></i>
@@ -118,7 +117,6 @@
                         <p>B.Sc. in Electrical and Electronics Engineering (2nd Year)</p>
                     </div>
                     
-                    <!-- Interests Card -->
                     <div class="info-card glass-card">
                         <div class="card-icon">
                             <i class="fas fa-microchip"></i>
@@ -127,7 +125,6 @@
                         <p>Circuit Analysis, Semiconductor Devices, Linux Systems</p>
                     </div>
                     
-                    <!-- Skills Card -->
                     <div class="info-card glass-card">
                         <div class="card-icon">
                             <i class="fas fa-code"></i>
@@ -137,65 +134,32 @@
                     </div>
                 </div>
 
-                <!-- NEW: Projects Section -->
-                <h3><i class="fas fa-project-diagram section-icon"></i> Projects</h3>
-                <div class="projects-grid">
-                    <div class="project-card glass-card">
-                        <div class="project-header">
-                            <i class="fas fa-diode project-icon"></i>
-                            <h4>Diode Characteristics Analysis</h4>
-                        </div>
-                        <p class="project-status">
-                            <span class="status-badge upcoming">
-                                <i class="fas fa-clock"></i> Will update soon
-                            </span>
-                        </p>
-                        <p class="project-description">Detailed analysis of rectifying and Zener diode I-V characteristics.</p>
+                <!-- Projects Preview -->
+                <h3><i class="fas fa-project-diagram section-icon"></i> Featured Projects</h3>
+                <div class="projects-preview">
+                    <div class="project-preview-card glass-card">
+                        <i class="fas fa-diode"></i>
+                        <h4>Diode Characteristics</h4>
+                        <p>Analysis of rectifying and Zener diodes</p>
+                        <a href="projects.html" class="preview-link">View Details →</a>
                     </div>
-
-                    <div class="project-card glass-card">
-                        <div class="project-header">
-                            <i class="fas fa-square-root-alt project-icon"></i>
-                            <h4>Laplace Transform Applications</h4>
-                        </div>
-                        <p class="project-status">
-                            <span class="status-badge upcoming">
-                                <i class="fas fa-clock"></i> Will update soon
-                            </span>
-                        </p>
-                        <p class="project-description">Mathematical modeling in circuit analysis using Laplace transforms.</p>
+                    <div class="project-preview-card glass-card">
+                        <i class="fas fa-square-root-alt"></i>
+                        <h4>Laplace Transform</h4>
+                        <p>Mathematical modeling in circuit analysis</p>
+                        <a href="projects.html" class="preview-link">View Details →</a>
                     </div>
-
-                    <div class="project-card glass-card">
-                        <div class="project-header">
-                            <i class="fab fa-linux project-icon"></i>
-                            <h4>Linux System Optimization</h4>
-                        </div>
-                        <p class="project-status">
-                            <span class="status-badge upcoming">
-                                <i class="fas fa-clock"></i> Will update soon
-                            </span>
-                        </p>
-                        <p class="project-description">Custom kernel configuration and system performance tuning.</p>
-                    </div>
-
-                    <div class="project-card glass-card">
-                        <div class="project-header">
-                            <i class="fas fa-microchip project-icon"></i>
-                            <h4>Semiconductor Device Study</h4>
-                        </div>
-                        <p class="project-status">
-                            <span class="status-badge upcoming">
-                                <i class="fas fa-clock"></i> Will update soon
-                            </span>
-                        </p>
-                        <p class="project-description">Investigation of semiconductor physics and device applications.</p>
+                    <div class="project-preview-card glass-card">
+                        <i class="fab fa-linux"></i>
+                        <h4>Linux Optimization</h4>
+                        <p>System configuration and tuning</p>
+                        <a href="projects.html" class="preview-link">View Details →</a>
                     </div>
                 </div>
             </section>
         </div>
 
-        <!-- Footer with Updated Contact Buttons -->
+        <!-- Footer -->
         <footer>
             <div class="contact-links">
                 <a href="mailto:raafiqulhasan756@gmail.com" class="contact-link">

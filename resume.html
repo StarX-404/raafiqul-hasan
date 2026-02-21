@@ -4,14 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resume - Raafiqul Hasan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-icons-font@v9/font/simple-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    <div class="container">
+<body class="light-mode">
+    <div class="theme-wrapper">
         <header>
-            <h1>Raafiqul Hasan</h1>
-            <p class="subtitle">Electrical and Electronics Engineering Student</p>
-            <nav>
+            <div class="header-container">
+                <div class="logo-area">
+                    <h1>Raafiqul Hasan</h1>
+                    <p class="subtitle">Electrical and Electronics Engineering Student</p>
+                </div>
+                
+                <div class="header-controls">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="5"></circle>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                            <line x1="1" y1="12" x2="3" y2="12"></line>
+                            <line x1="21" y1="12" x2="23" y2="12"></line>
+                            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                        </svg>
+                        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                        </svg>
+                    </button>
+                    
+                    <button id="menu-toggle" class="menu-toggle" aria-label="Toggle menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+            
+            <nav id="main-nav">
                 <ul>
                     <li><a href="resume.html" class="active">Resume</a></li>
                     <li><a href="research.html">Research</a></li>
@@ -22,7 +54,7 @@
         </header>
 
         <div class="main-content">
-            <aside class="sidebar">
+            <aside class="sidebar glass-card">
                 <div class="profile-image">
                     <img src="images/your-photo.jpg" alt="Raafiqul Hasan">
                 </div>
@@ -36,7 +68,7 @@
                 
                 <div class="resume-section">
                     <h3>Education</h3>
-                    <div class="resume-item">
+                    <div class="resume-item glass-card">
                         <h4>B.Sc. in Electrical and Electronics Engineering (EEE)</h4>
                         <p class="institution">University of Asia Pacific, Dhaka, Bangladesh</p>
                         <p class="details">Second Year Undergraduate</p>
@@ -46,7 +78,7 @@
 
                 <div class="resume-section">
                     <h3>Experience</h3>
-                    <div class="resume-item">
+                    <div class="resume-item glass-card">
                         <h4>Laboratory Work (EEE & Physics Labs)</h4>
                         <ul>
                             <li>Verification of Ohm's Law and Kirchhoff's Voltage Law (KVL)</li>
@@ -56,7 +88,7 @@
                             <li>Galvanometer Resistance (Half-Deflection Method)</li>
                         </ul>
                     </div>
-                    <div class="resume-item">
+                    <div class="resume-item glass-card">
                         <h4>Technical Practice</h4>
                         <ul>
                             <li>Linux system customization and configuration</li>
@@ -68,26 +100,52 @@
 
                 <div class="resume-section">
                     <h3>Skills</h3>
-                    <ul class="skills-list">
-                        <li><strong>Programming:</strong> C (beginner), Python (beginner)</li>
-                        <li><strong>Circuit Analysis & Basic Electronics</strong></li>
-                        <li><strong>Mathematical Modeling:</strong> ODE, Laplace Transform</li>
-                        <li><strong>Linux Environment & System Configuration</strong></li>
-                        <li><strong>Problem Solving & Analytical Thinking</strong></li>
-                    </ul>
+                    <div class="skills-grid">
+                        <div class="skill-tag">
+                            <i class="si si-c"></i>
+                            <span>C (beginner)</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="si si-python"></i>
+                            <span>Python (beginner)</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="si si-linux"></i>
+                            <span>Linux</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="si si-visualstudiocode"></i>
+                            <span>Circuit Analysis</span>
+                        </div>
+                        <div class="skill-tag">
+                            <i class="si si-math"></i>
+                            <span>Mathematical Modeling</span>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
 
         <footer>
             <div class="contact-links">
-                <a href="mailto:raafiqulhasan756@gmail.com">Email</a>
-                <a href="https://github.com/StarX-404" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/raafiqul-hasan" target="_blank">LinkedIn</a>
+                <a href="mailto:raafiqulhasan756@gmail.com" class="contact-link">
+                    <i class="si si-gmail"></i>
+                    <span>Email</span>
+                </a>
+                <a href="https://github.com/StarX-404" target="_blank" class="contact-link">
+                    <i class="si si-github"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://www.linkedin.com/in/raafiqul-hasan" target="_blank" class="contact-link">
+                    <i class="si si-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
             </div>
             <p>University of Asia Pacific, Dhaka</p>
             <p class="copyright">© 2024 by Raafiqul Hasan</p>
         </footer>
     </div>
+
+    <script src="js/main.js"></script>
 </body>
 </html>

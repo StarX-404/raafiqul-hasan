@@ -1,4 +1,32 @@
-/* CSS Variables for Light/Dark Modes */
+/* ============================================
+   COMPLETE CSS - WITH DARK MODE FIX
+   ============================================ */
+
+/* Immediate theme application - no flash */
+html.dark-mode,
+html[data-theme="dark"] {
+    color-scheme: dark;
+}
+
+html.light-mode,
+html[data-theme="light"] {
+    color-scheme: light;
+}
+
+/* Base body styles with important flags */
+html.dark-mode body,
+html[data-theme="dark"] body {
+    background-color: #0f172a !important;
+    color: #f8fafc !important;
+}
+
+html.light-mode body,
+html[data-theme="light"] body {
+    background-color: #f8fafc !important;
+    color: #0f172a !important;
+}
+
+/* CSS Variables - Base (Light Mode) */
 :root {
     --bg-primary: #f8fafc;
     --bg-secondary: #ffffff;
@@ -13,6 +41,9 @@
     --terminal-text: #f8fafc;
 }
 
+/* Dark Mode Variables */
+html.dark-mode,
+html[data-theme="dark"],
 .dark-mode {
     --bg-primary: #0f172a;
     --bg-secondary: #1e293b;
@@ -27,6 +58,7 @@
     --terminal-text: #f8fafc;
 }
 
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -40,9 +72,6 @@ body {
     background-color: var(--bg-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     min-height: 100vh;
-
-    /* Fade-in animation */
-    animation: fadeIn 0.6s ease-in;
 }
 
 .theme-wrapper {
@@ -83,6 +112,13 @@ h1 {
     letter-spacing: 1px;
 }
 
+/* Header Controls */
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 /* Theme Toggle */
 .theme-toggle {
     background: none;
@@ -93,17 +129,30 @@ h1 {
     color: var(--text-primary);
     background-color: var(--card-bg);
     backdrop-filter: blur(10px);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+    color: var(--accent);
 }
 
 /* Hamburger Menu */
 .menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 5px;
+    justify-content: space-between;
     width: 30px;
+    height: 21px;
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
+    z-index: 100;
 }
 
 .menu-toggle span {
@@ -112,6 +161,18 @@ h1 {
     background-color: var(--text-primary);
     border-radius: 3px;
     transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Navigation */
@@ -130,12 +191,31 @@ nav a {
     font-size: 1rem;
     padding-bottom: 5px;
     transition: color 0.3s ease;
+    position: relative;
 }
 
-nav a:hover,
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--accent);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    width: 100%;
+}
+
 nav a.active {
     color: var(--accent);
-    border-bottom: 2px solid var(--accent);
 }
 
 /* Main Content Layout */
@@ -155,11 +235,12 @@ nav a.active {
     padding: 25px;
     border: 1px solid var(--border);
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .glass-card:hover {
     transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
 }
 
 /* Sidebar */
@@ -174,6 +255,7 @@ nav a.active {
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid var(--accent);
+    box-shadow: var(--shadow);
 }
 
 .profile-image img {
@@ -229,7 +311,7 @@ nav a.active {
     color: var(--accent);
 }
 
-/* Terminal — ORIGINAL DARK STYLE RESTORED */
+/* Terminal */
 .terminal {
     background-color: var(--terminal-bg);
     color: var(--terminal-text);
@@ -237,7 +319,6 @@ nav a.active {
     overflow: hidden;
     margin-bottom: 30px;
     font-family: 'JetBrains Mono', monospace;
-    border: 1px solid #444; /* keep that classic dark terminal border */
 }
 
 .terminal-header {
@@ -285,9 +366,18 @@ nav a.active {
     margin-right: 10px;
 }
 
+.command {
+    color: #f8fafc;
+}
+
+.typed-text {
+    color: #f8fafc;
+}
+
 .cursor {
     color: var(--accent);
     animation: blink 1s infinite;
+    margin-left: 2px;
 }
 
 @keyframes blink {
@@ -394,81 +484,84 @@ ul li:before {
 }
 
 /* Incoming Page */
-.incoming-box {
-    text-align: center;
-    padding: 60px 40px;
-    margin: 20px 0;
+.incoming-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
 }
 
-.incoming-icon {
+.incoming-message-box {
+    text-align: center;
+    padding: 40px;
+    width: 100%;
+}
+
+.incoming-large {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;
-    gap: 20px;
-    margin-bottom: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.incoming-icon i {
-    font-size: 3rem;
+.incoming-word {
+    background: linear-gradient(135deg, var(--accent) 0%, #60a5fa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glow 2s ease-in-out infinite;
+}
+
+.incoming-exclamation {
     color: var(--accent);
-    animation: bounce 2s infinite;
+    animation: bounce 1s ease-in-out infinite;
 }
 
-.incoming-icon i:nth-child(2) { animation-delay: 0.3s; }
-.incoming-icon i:nth-child(3) { animation-delay: 0.6s; }
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 5px rgba(59, 130, 246, 0.3)); }
+    50% { filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.6)); }
+}
 
 @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+.incoming-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.incoming-decoration i {
+    font-size: 2.5rem;
+    color: var(--accent);
+    opacity: 0.7;
+    animation: float 3s ease-in-out infinite;
+}
+
+.incoming-decoration i:nth-child(2) { animation-delay: 0.2s; }
+.incoming-decoration i:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes float {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
 }
 
-.incoming-title {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 3rem;
-    color: var(--accent);
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
-.incoming-text {
-    font-size: 1.1rem;
+.incoming-small {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.2rem;
     color: var(--text-secondary);
-    margin-bottom: 25px;
-}
-
-.incoming-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    margin: 25px 0;
-}
-
-.incoming-tags span {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    padding: 6px 15px;
-    border-radius: 25px;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--text-primary);
-}
-
-.incoming-tags span i {
-    color: var(--accent);
-}
-
-.incoming-footer {
-    margin-top: 25px;
-    padding: 12px 25px;
-    background: rgba(59, 130, 246, 0.1);
-    border-radius: 30px;
-    color: var(--accent);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 20px;
+    opacity: 0.8;
 }
 
 /* Footer */
@@ -503,6 +596,7 @@ footer {
 .contact-link:hover {
     color: var(--accent);
     border-color: var(--accent);
+    transform: translateY(-2px);
 }
 
 .contact-link i {
@@ -517,6 +611,7 @@ footer p {
 
 .copyright {
     font-size: 0.8rem;
+    margin-top: 15px;
     opacity: 0.7;
 }
 
@@ -547,9 +642,10 @@ footer p {
         width: 70%;
         height: 100vh;
         background-color: var(--bg-secondary);
-        padding: 80px 20px;
+        padding: 80px 20px 20px;
         transition: right 0.3s ease;
         z-index: 99;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     }
 
     nav.active {
@@ -559,6 +655,13 @@ footer p {
     nav ul {
         flex-direction: column;
         gap: 20px;
+        margin-top: 0;
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 0;
+        font-size: 1.2rem;
     }
 
     h1 {
@@ -574,16 +677,8 @@ footer p {
     .skills-grid {
         grid-template-columns: 1fr;
     }
-}
 
-/* Fade-in animation keyframes */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .incoming-large {
+        font-size: 2.5rem;
     }
 }
